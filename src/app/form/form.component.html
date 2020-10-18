@@ -1,0 +1,32 @@
+<h1>Feedback Form</h1>
+<form [formGroup]="feedbackform" (ngSubmit)="onSubmit()">
+  <label for="name">Name:</label>
+  <input type="text" id= "name" formControlName="name" >
+  <br>
+  <br>
+  <label for="email">Email:</label>
+  <input type="text" id="email" formControlName="email">
+  <br>
+  <br>
+  <label>Feedback:</label>
+  <br>
+  <input type="radio" id="great" formControlName="feedback" value="Great">
+  <label for="great">Great</label>
+  <br>
+  <input type="radio" id="okay" formControlName="feedback" value="Okay">
+  <label for="okay">Okay</label>
+  <br>
+  <input type="radio" id="not okay" formControlName="feedback" value="Not okay">
+  <label for="not okay">Not okay</label>
+  <br>
+  <br>
+  <label for="comments">Comments:</label>
+  <br>
+  <textarea id="comments" formControlName="comment" rows="5" cols="25"></textarea>
+  <br>
+  <button type="submit" [disabled]="!feedbackform.valid">Submit</button>
+  <p>
+  {{feedbackform.value | json}}
+  </p>
+</form>
+
